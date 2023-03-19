@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.11.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces" Version="3.11.0" />
     <ProjectReference Include="..\..\CodeRefactoringsForVisualStudio.Extensions\CodeRefactoringsForVisualStudio.Extensions.csproj" />
     <PackageReference Update="NETStandard.Library" PrivateAssets="all" />
   </ItemGroup>

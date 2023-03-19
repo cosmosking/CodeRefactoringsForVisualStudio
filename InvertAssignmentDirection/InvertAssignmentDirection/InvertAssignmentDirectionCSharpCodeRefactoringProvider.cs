@@ -13,9 +13,8 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace InvertAssignmentDirection
 {
-
-    [ExportCodeRefactoringProvider(LanguageNames.CSharp, Name = nameof(InvertAssignmentDirectionRefactoringProvider)), Shared]
-    public class InvertAssignmentDirectionRefactoringProvider : CodeRefactoringProvider
+    [ExportCodeRefactoringProvider(LanguageNames.CSharp, Name = nameof(InvertAssignmentDirectionCSharpCodeRefactoringProvider)), Shared]
+    public class InvertAssignmentDirectionCSharpCodeRefactoringProvider : CodeRefactoringProvider
     {
         public sealed override async Task ComputeRefactoringsAsync(CodeRefactoringContext context)
         {
@@ -40,7 +39,7 @@ namespace InvertAssignmentDirection
         private SyntaxNode InvertAssignmentExpression(AssignmentExpressionSyntax originalNode, AssignmentExpressionSyntax _)
         {
             ExpressionSyntax left = originalNode.Right.WithoutTrivia().WithTriviaFrom(originalNode.Left);
-            ExpressionSyntax right = originalNode.Left.WithoutTrivia();
+            ExpressionSyntax right = originalNode.Left.WithoutTrivia().WithTriviaFrom(originalNode.Right);
             SyntaxNode invertedAssigment = originalNode.WithLeft(left).WithRight(right);
 
             return invertedAssigment;

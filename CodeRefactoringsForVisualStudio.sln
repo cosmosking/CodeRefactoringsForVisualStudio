@@ -56,9 +56,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CopyPasteWithConversion_", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateMapping.Vsix", "GenerateMapping\GenerateMapping.Vsix\GenerateMapping.Vsix.csproj", "{266614C7-DEFD-4789-AF1F-F7C7AE62A32C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompleteInvocation", "CompleteInvocation\CompleteInvocation\CompleteInvocation.csproj", "{C3BB0884-E067-4E11-9849-259625D35976}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompleteInvocation", "CompleteInvocation\CompleteInvocation\CompleteInvocation.csproj", "{C3BB0884-E067-4E11-9849-259625D35976}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompleteInvocation.Vsix", "CompleteInvocation\CompleteInvocation.Vsix\CompleteInvocation.Vsix.csproj", "{2E6019CF-9412-4772-BB74-EB903B7634BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompleteInvocation.Vsix", "CompleteInvocation\CompleteInvocation.Vsix\CompleteInvocation.Vsix.csproj", "{2E6019CF-9412-4772-BB74-EB903B7634BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,8 +84,8 @@ Global
 		{FE114F42-D022-481A-94E3-2BB98766A936}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FE114F42-D022-481A-94E3-2BB98766A936}.Release|x86.ActiveCfg = Release|Any CPU
 		{FE114F42-D022-481A-94E3-2BB98766A936}.Release|x86.Build.0 = Release|Any CPU
-		{BF68B22E-4D1C-4B5F-800A-4536D9B48F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF68B22E-4D1C-4B5F-800A-4536D9B48F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF68B22E-4D1C-4B5F-800A-4536D9B48F0F}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{BF68B22E-4D1C-4B5F-800A-4536D9B48F0F}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{BF68B22E-4D1C-4B5F-800A-4536D9B48F0F}.Debug|x86.ActiveCfg = Debug|x86
 		{BF68B22E-4D1C-4B5F-800A-4536D9B48F0F}.Debug|x86.Build.0 = Debug|x86
 		{BF68B22E-4D1C-4B5F-800A-4536D9B48F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU

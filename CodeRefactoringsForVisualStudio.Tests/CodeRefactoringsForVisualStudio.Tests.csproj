@@ -1,9 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <SignAssembly>True</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -84,6 +94,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithElementAccessOnBothSides.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithElementAccessOnBothSides_expected.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnBothSides.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnBothSides_expected.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnOneSide.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnOneSide_expected.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldInvertSelectedSingleAssignment.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldInvertSelectedSingleAssignment_expected.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldInvertSelectedTwoAssignments.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldInvertSelectedTwoAssignments_expected.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldPreserveLeftTrivia.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldPreserveLeftTrivia_expected.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldPreserveRightTrivia.vb" />
+    <None Remove="InvertAssignmentDirection\Data\ShouldPreserveRightTrivia_expected.vb" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="EncapsulateFieldForWPF\Data\ShouldEncapsulateFieldWhenCursorIsOnTypeName.cs" />
     <EmbeddedResource Include="EncapsulateFieldForWPF\Data\ShouldEncapsulateFieldWhenCursorIsOnIdentifier.cs" />
     <EmbeddedResource Include="EncapsulateFieldForWPF\Data\ShouldEncapsulateFieldWhenCursorIsInTheMiddle.cs" />
@@ -140,19 +167,33 @@
     <EmbeddedResource Include="GenerateMapping\Context\CopyConstructor.cs" />
     <EmbeddedResource Include="GenerateMapping\Special\Generic.cs" />
     <EmbeddedResource Include="GenerateMapping\Special\Generic_expected.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithElementAccessOnBothSides.vb" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithElementAccessOnBothSides_expected.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithElementAccessOnBothSides_expected.cs" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithElementAccessOnBothSides.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnBothSides.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnBothSides.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnBothSides_expected.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnBothSides_expected.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnOneSide.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnOneSide.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnOneSide_expected.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertAssignmentWithMemberAccessOnOneSide_expected.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertSelectedSingleAssignment.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertSelectedSingleAssignment.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertSelectedSingleAssignment_expected.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertSelectedSingleAssignment_expected.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertSelectedTwoAssignments.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertSelectedTwoAssignments.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertSelectedTwoAssignments_expected.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldInvertSelectedTwoAssignments_expected.cs" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldPreserveLeftTrivia.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldPreserveLeftTrivia.vb" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldPreserveLeftTrivia_expected.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldPreserveLeftTrivia_expected.cs" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldPreserveRightTrivia.cs" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldPreserveRightTrivia.vb" />
+    <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldPreserveRightTrivia_expected.vb" />
     <EmbeddedResource Include="InvertAssignmentDirection\Data\ShouldPreserveRightTrivia_expected.cs" />
     <EmbeddedResource Include="RenameVariable\Data\PassBasicSmokeTest.cs" />
     <EmbeddedResource Include="RenameVariable\Data\PassBasicSmokeTest_expected.cs" />

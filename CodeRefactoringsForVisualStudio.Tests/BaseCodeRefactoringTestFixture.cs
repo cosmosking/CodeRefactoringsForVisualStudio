@@ -38,5 +38,39 @@ namespace CodeRefactoringsForVisualStudio.Tests
 
             return result;
         }
+
+    }
+
+    public abstract class VBCodeRefactoringTestFixture : CodeRefactoringTestFixture
+    {
+        protected override string LanguageName { get => Microsoft.CodeAnalysis.LanguageNames.VisualBasic; }
+        protected override bool FailWhenInputContainsErrors => false;
+
+
+        protected void TestCodeRefactoring(string folderWithData, string caseName)
+        {
+            string inputMarkupCode = LoadResource(folderWithData, caseName);
+            string expectedMarkupCode = LoadResource(folderWithData, caseName + "_expected");
+
+            base.TestCodeRefactoring(inputMarkupCode, expectedMarkupCode);
+        }
+
+        private string LoadResource(string folderWithData, string fileName)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = $"CodeRefactoringsForVisualStudio.Tests.{folderWithData}.{fileName}.vb";
+
+            string result;
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    result = reader.ReadToEnd();
+                }
+            }
+
+            return result;
+        }
     }
 }
