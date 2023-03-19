@@ -1,13 +1,17 @@
 # Code refactorings for VisualStudio
-
-- [Invert assignment direction](#invert-assignment-direction)
-- [Generate mapping](#generate-mapping)
-- [Rename variable after type/expression](#rename-variable-after-typeexpression)
-- [Introduce parameter object](#introduce-parameter-object)
-- [MediatR add RequestHandler and Request](#mediatr-add-requesthandler-and-request)
-- [Convert to full WPF property](#convert-to-full-wpf-property)
-- [Encapsulate field for WPF](#encapsulate-field-wpf)
-- [Copy paste with conversion](#copypaste-with-case-conversion)
+Fork from [NeVeSpl/CodeRefactoringsForVisualStudio](https://github.com/NeVeSpl/CodeRefactoringsForVisualStudio)
+- [Code refactorings for VisualStudio](#code-refactorings-for-visualstudio)
+  - [Invert assignment direction](#invert-assignment-direction)
+  - [Generate mapping](#generate-mapping)
+  - [Rename variable after type/expression](#rename-variable-after-typeexpression)
+  - [Introduce parameter object](#introduce-parameter-object)
+        - [Limitations](#limitations)
+  - [MediatR add RequestHandler and Request](#mediatr-add-requesthandler-and-request)
+        - [Limitations](#limitations-1)
+        - [Changelog](#changelog)
+  - [Convert to full WPF Property](#convert-to-full-wpf-property)
+  - [Encapsulate field (WPF)](#encapsulate-field-wpf)
+  - [Copy/Paste with case conversion](#copypaste-with-case-conversion)
 
 
 ## Invert assignment direction
@@ -18,6 +22,7 @@
 
 Visual Studio code refactoring that allows swapping arguments around the equal sign in an assignment statement. It works on single or many selected assignment statements at once.
 
+**New Improvements: Improve the InvertAssignmentDirection project to support the Visual Basic Language, and fix a bug where the right newline trivia was missing after inverting VB statements** 
 
 ## Generate mapping
 
