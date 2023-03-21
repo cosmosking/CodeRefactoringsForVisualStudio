@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Composition;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,9 +9,11 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeRefactorings;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Formatting;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Rename;
 using Microsoft.CodeAnalysis.Text;
+using Microsoft.CodeAnalysis.Formatting;
 
 namespace ExtractTryAndFinallyBody
 {
@@ -29,35 +32,31 @@ namespace ExtractTryAndFinallyBody
             }
         }
 
-
-        private async Task<Document> ExtractTryBody(Document document, IEnumerable<TryStatementSyntax> assignmentExpressions, CancellationToken cancellationToken)
+        private async Task<Document> ExtractTryBody(Document document, IEnumerable<TryStatementSyntax> tryExpressions, CancellationToken cancellationToken)
         {
             SyntaxNode rootNode = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
-            rootNode = rootNode.ReplaceNodes(assignmentExpressions, ExtractTryBodyExpression);
+            rootNode = rootNode.ReplaceNodes(tryExpressions, ExtractTryBodyExpression);
+            
             return document.WithSyntaxRoot(rootNode);
         }
 
         private SyntaxNode ExtractTryBodyExpression(TryStatementSyntax originalNode, TryStatementSyntax _)
         {
-            SyntaxNode body = originalNode.Block.WithoutTrivia();
-            SyntaxNode final = originalNode.Finally.WithoutTrivia();
-            return body;
-        }
-
-        private bool IsHandledExpressionSyntax(CSharpSyntaxNode node)
-        {
-            bool result = false;
-
-            switch (node)
+            var oldTryBody = originalNode.Block.Statements;
+            
+            var newTryBody = SyntaxFactory.Block(oldTryBody);
+            var finalyBody = originalNode.Finally?.Block;
+            if(finalyBody != null)
             {
-                case IdentifierNameSyntax _:
-                case MemberAccessExpressionSyntax _:
-                case ElementAccessExpressionSyntax _:
-                    result = true;
-                    break;
+                foreach (var statement in finalyBody.Statements)
+                {
+                    newTryBody = newTryBody.AddStatements(statement);
+                }
             }
-
-            return result;
+            //newTryBody = newTryBody.ReplaceToken(newTryBody.OpenBraceToken, SyntaxFactory.Token(SyntaxKind.None))
+            //                       .ReplaceToken(newTryBody.CloseBraceToken, SyntaxFactory.Token(SyntaxKind.None));
+            return newTryBody.WithTriviaFrom(originalNode);
         }
+
     }
 }

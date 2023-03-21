@@ -31,6 +31,10 @@
     <Compile Remove="EncapsulateFieldForWPF\Data\ShouldEncapsulateTwoFieldsWhenTwoFieldsAreInLine_expected.cs" />
     <Compile Remove="EncapsulateFieldForWPF\Data\ShouldEncapsulateTwoFieldsWhenTwoFieldsAreSelected.cs" />
     <Compile Remove="EncapsulateFieldForWPF\Data\ShouldEncapsulateTwoFieldsWhenTwoFieldsAreSelected_expected.cs" />
+    <Compile Remove="ExtractTryAndFinallyBody\Data\ShouldExtractTryAndFinallyBody.cs" />
+    <Compile Remove="ExtractTryAndFinallyBody\Data\ShouldExtractTryAndFinallyBody_expected.cs" />
+    <Compile Remove="ExtractTryAndFinallyBody\Data\ShouldExtractTryBody.cs" />
+    <Compile Remove="ExtractTryAndFinallyBody\Data\ShouldExtractTryBody_expected.cs" />
     <Compile Remove="GenerateMapping\Assignment\ArrayType.cs" />
     <Compile Remove="GenerateMapping\Assignment\ArrayType_expected.cs" />
 	<Compile Remove="GenerateMapping\Assignment\CollectionType.cs" />
@@ -123,6 +127,10 @@
     <EmbeddedResource Include="EncapsulateFieldForWPF\Data\ShouldEncapsulateTwoFieldsWhenTwoFieldsAreSelected.cs" />
     <EmbeddedResource Include="EncapsulateFieldForWPF\Data\ShouldEncapsulateTwoFieldsWhenTwoFieldsAreInLine.cs" />
     <EmbeddedResource Include="EncapsulateFieldForWPF\Data\ShouldEncapsulateTwoFieldsWhenTwoFieldsAreInLine_expected.cs" />
+    <EmbeddedResource Include="ExtractTryAndFinallyBody\Data\ShouldExtractTryAndFinallyBody.cs" />
+    <EmbeddedResource Include="ExtractTryAndFinallyBody\Data\ShouldExtractTryBody.cs" />
+    <EmbeddedResource Include="ExtractTryAndFinallyBody\Data\ShouldExtractTryAndFinallyBody_expected.cs" />
+    <EmbeddedResource Include="ExtractTryAndFinallyBody\Data\ShouldExtractTryBody_expected.cs" />
     <EmbeddedResource Include="GenerateMapping\Assignment\ArrayType_expected.cs" />
     <EmbeddedResource Include="GenerateMapping\Assignment\ArrayType.cs" />
     <EmbeddedResource Include="GenerateMapping\Assignment\CollectionType.cs" />
@@ -209,6 +217,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ConvertToFullWPFProperty\ConvertToFullWPFProperty\ConvertToFullWPFProperty.csproj" />
     <ProjectReference Include="..\EncapsulateFieldForWPF\EncapsulateFieldForWPF\EncapsulateFieldForWPF.csproj" />
+    <ProjectReference Include="..\ExtractTryAndFinallyBody\ExtractTryAndFinallyBody\ExtractTryAndFinallyBody.csproj" />
     <ProjectReference Include="..\GenerateMapping\GenerateMapping\GenerateMapping.csproj" />
     <ProjectReference Include="..\InvertAssignmentDirection\InvertAssignmentDirection\InvertAssignmentDirection.csproj" />
     <ProjectReference Include="..\RenameVariableAfterType\RenameVariableAfterType\RenameVariableAfterType.csproj" />
